@@ -1,0 +1,14 @@
+extends layout
+//- incluimos el mixin o vista para crear proyecto
+include ./mixins/crearProyecto
+
+block content
+  .contenido-principal
+    h1 #{nombrePagina}
+
+    if errors
+      each error in errors
+        .alerta.error #{error.texto}
+    //agregamos la vista que traemos de mixins
+    +crearProyecto(proyecto)
+    
